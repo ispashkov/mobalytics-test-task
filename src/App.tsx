@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { CssBaseline, CircularProgress } from "@material-ui/core";
 import Home from "pages/Home";
@@ -10,6 +10,7 @@ const App: React.FC = (): React.ReactElement => (
       <Router>
         <Switch>
           <Route path="/" component={Home} exact />
+          <Route path="/:name" component={lazy(() => import("pages/Detail"))} />
         </Switch>
       </Router>
     </Suspense>
