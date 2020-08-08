@@ -10,7 +10,12 @@ const App: React.FC = (): React.ReactElement => (
       <Router>
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/:name" component={lazy(() => import("pages/Detail"))} />
+          <Route
+            path="/:name"
+            component={lazy(() => import("pages/Detail"))}
+            exact
+          />
+          <Route path="*" component={lazy(() => import("pages/NotFound"))} />
         </Switch>
       </Router>
     </Suspense>
